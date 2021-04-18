@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="templates/commonTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formPrincipal">
+
+			<div class="card" style="">
+				<p:dataTable lazy="false" var="row"
+					value="#{usuarioBean.usuarioLista}" sortBy="#{row.nome}" rows="5"
+					paginator="true" allowUnsorting="false" style="margin: 1%;"
+					tableStyle="width:auto;">
+
+					<p:column headerText="Nome" sortable="true" sortBy="#{row.nome}"
+						sortOrder="asc">
+						<h:outputText value="#{row.nome}" />
+					</p:column>
+
+					<p:column headerText="CPF" sortable="true" sortBy="#{row.cpf}">
+						<h:outputText value="#{row.cpf}" />
+					</p:column>
+
+					<p:column headerText="Data de nascimento">
+						<h:outputText value="#{row.dataNascimento}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Sexo">
+						<h:outputText value="#{row.sexo}" />
+					</p:column>
+
+					<p:column headerText="Data de cadastro">
+						<h:outputText value="#{row.dataCadastro}">
+							<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Cargo">
+						<h:outputText value="#{row.cargo.nome}" />
+					</p:column>
+
+					<p:column headerText="Perfis">
+						<p:repeat value="#{row.perfis}" var="perfil">
+							<h:outputText value="#{perfil.nome}; " />
+						</p:repeat>
+					</p:column>
+
+					<p:column headerText="Ações" width="1%">
+						<p:button value="Editar" href="./usuarioUpdate.jsf?id=#{row.id}"
+							style="float: right;" />
+					</p:column>
+
+				</p:dataTable>
+			</div>
+
+			<f:metadata>
+				<f:event type="preRenderView" listener="#{usuarioBean.listar()}" />
+			</f:metadata>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="templates/commonTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formPrincipal">
+
+			<div class="card" style="">
+				<p:dataTable lazy="false" var="row"
+					value="#{perfilBean.perfilLista}" sortBy="#{row.nome}" rows="5"
+					paginator="true" allowUnsorting="false" style="margin: 1%;"
+					tableStyle="width:100%;">
+
+					<p:column headerText="Nome do Perfil" sortable="true"
+						sortBy="#{row.nome}" sortOrder="asc" width="80%">
+						<h:outputText value="#{row.nome}" />
+					</p:column>
+
+					<p:column headerText="Ações" width="20%">
+							<p:button value="Editar" href="./perfilUpdate.jsf?id=#{row.id}"
+								style="float: right;" />
+							<p:commandButton value="Excluir" update="formPrincipal"
+								onclick="return confirm('Deseja realmente excluir #{row.nome} ?');"
+								action="#{perfilBean.excluir(row.id)}" style="float: right;" />
+					</p:column>
+
+				</p:dataTable>
+			</div>
+
+			<f:metadata>
+				<f:event type="preRenderView" listener="#{perfilBean.listar()}" />
+			</f:metadata>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

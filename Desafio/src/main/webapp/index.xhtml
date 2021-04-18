@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="templates/commonTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formPrincipal">
+
+			<p:panel id="dadosUsuario" rendered="#{login.usuarioLogado != null}"
+				header="Seja bem vindo" toggleable="true" closable="false"
+				toggleSpeed="500" widgetVar="panelDadosUsuario"
+				style="margin-bottom:20px">
+
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6">
+						<p:fieldset legend="Nome do Usuario">
+							<h:outputText value="#{login.usuarioLogado.nome}" style="font-size:1em;display:inline;padding-left: 0.5em;" />
+						</p:fieldset>
+					</div>
+					<div class="ui-g-12 ui-md-6">
+						<p:fieldset legend="Login feito em">
+							<h:outputText value="#{login.horaLoginDate}">
+								<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+							</h:outputText>
+						</p:fieldset>
+					</div>
+				</div>
+
+			</p:panel>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

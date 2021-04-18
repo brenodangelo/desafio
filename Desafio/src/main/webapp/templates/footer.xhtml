@@ -1,0 +1,14 @@
+<!-- Use ui:component when you're creating a page without template -->
+<ui:component xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:panel rendered="#{login.usuarioLogado != null}" id="footer" style="text-align:center; height:40px;background-size: 20px 80px; background: lightgray; border-top: 3px solid #354368;margin-top: 1em;" >
+		<div style="margin-top: 5px;">
+			<h:outputText value="#{login.usuarioLogado.id} - #{login.usuarioLogado.nome}" style="display:inline;padding-left: 0.5em;"/>
+		</div>
+	</p:panel>
+
+
+</ui:component>
