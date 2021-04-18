@@ -1,0 +1,80 @@
+* {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 0.95em;
+}
+
+@media screen and (min-width: 1300px) {
+    body {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@page {
+	size: A4;
+	margin: 0;
+}
+
+@media print and (min-width: 1024px) {
+	html, body {
+        padding-left: 1%;
+        padding-right: 1%;
+	}
+}
+
+.displayNone {
+	display: none;
+}
+
+.infoBar {
+	padding: 0.5em;background: #eeeeee;margin-top: 1em;margin-bottom: 1em;border-top: 1px solid #c3241e;
+}
+
+.ui-menu {
+	background: #f9f9f9;
+}
+
+.ui-selectonemenu-panel .ui-selectonemenu-filter  {
+     width: auto;
+}
+
+.ui-fieldset-content {
+	min-height: 2.1em;
+}
+
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+    padding: .4em 1em;
+}
+
+.ui-fieldset-legend {
+    width: 100%;
+    margin-left: -12px;
+}
+
+.ui-corner-all, .ui-corner-top {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.ui-spinner-input {
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 20px;
+    width: 60px;
+}
+
+.ui-widget-overlay {
+    opacity: .20;
+    filter: Alpha(Opacity=20);
+    background: lightgray;
+}
+
+.ui-widget-header {
+    border: 1px solid #878ea4;
+    background: #d2f0ff;
+}
+
+#formPrincipal:btUsuario_dlg {
+	background: #FF0000;	
+}

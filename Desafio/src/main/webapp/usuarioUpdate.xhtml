@@ -1,0 +1,75 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="templates/commonTemplate.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formPrincipal">
+			<f:metadata>
+				<f:viewParam name="id" value="#{usuarioBean.usuario.id}" />
+				<f:event type="preRenderView"
+					listener="#{usuarioBean.carregaUsuario()}" />
+			</f:metadata>
+
+			<div class="ui-g">
+				<div class="ui-g-12">
+
+					<div class="ui-fluid p-grid p-formgrid">
+						<div class="p-field p-col-12 p-md-3">
+							<p:fieldset legend="Nome">
+								<p:inputText id="nomeUsuario"
+									value="#{usuarioBean.usuario.nome}" />
+							</p:fieldset>
+						</div>
+						<div class="p-field p-col-12 p-md-3">
+							<p:fieldset legend="CPF">
+								<p:inputText id="cpfUsuario" value="#{usuarioBean.usuario.cpf}" />
+							</p:fieldset>
+						</div>
+						<div class="p-field p-col-12 p-md-3">
+							<p:fieldset legend="Data de nascimento">
+								<p:datePicker id="dataNascimentoUsuario"
+									value="#{usuarioBean.usuario.dataNascimento}" />
+							</p:fieldset>
+						</div>
+						<div class="p-field p-col-12 p-md-3">
+							<p:fieldset legend="Sexo">
+								<p:selectOneRadio id="sexoUsuario"
+									value="#{usuarioBean.usuario.sexo}" unselectable="true">
+									<f:selectItem itemLabel="Masculino" itemValue="M" />
+									<f:selectItem itemLabel="Feminino" itemValue="F" />
+								</p:selectOneRadio>
+							</p:fieldset>
+						</div>
+						<div class="p-field p-col-12 p-md-6">
+							<p:fieldset legend="Cargo">
+								<p:selectOneMenu value="#{usuarioBean.cargoSelecionado}">
+									<f:selectItems var="cargo" value="#{usuarioBean.listaCargos}"
+										itemValue="#{cargo.id}" itemLabel="#{cargo.nome}" />
+								</p:selectOneMenu>
+							</p:fieldset>
+						</div>
+						<div class="p-field p-col-12 p-md-6">
+							<p:fieldset legend="Perfis">
+								<p:selectManyCheckbox id="perfisUsuario" layout="responsive" columns="3"
+									value="#{usuarioBean.perfisSelecionados}">
+									<f:selectItems var="perfil" value="#{usuarioBean.listaPerfis}"
+										itemValue="#{perfil.id}" itemLabel="#{perfil.nome}" />
+								</p:selectManyCheckbox>
+							</p:fieldset>
+						</div>
+					</div>
+
+				</div>
+				<div class="ui-g-12">
+					<p:commandButton value="Salvar alteração"
+						action="#{usuarioBean.atualizar()}" />
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

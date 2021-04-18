@@ -1,0 +1,41 @@
+<ui:component xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+		<p:menubar>
+
+			<p:menuitem value="Pagina Inicial" outcome="inicio" icon="ui-icon-home" />
+
+			<p:submenu label="Cargos">
+				<p:menuitem value="Cadastrar" outcome="cargoInsert" icon="ui-icon-plusthick" />
+				<p:menuitem value="Listar e Editar" outcome="cargoList" icon="ui-icon-wrench" />
+			</p:submenu>
+
+			<p:submenu label="Perfis">
+				<p:menuitem value="Cadastrar" outcome="perfilInsert" icon="ui-icon-plusthick" />
+				<p:menuitem value="Listar, Editar e Excluir" outcome="perfilList" icon="ui-icon-wrench" />
+			</p:submenu>
+
+			<p:submenu label="Usuarios">
+				<p:menuitem value="Cadastrar" outcome="usuarioInsert" icon="ui-icon-plusthick" />
+				<p:menuitem value="Listar, Editar" outcome="usuarioList" icon="ui-icon-wrench" />
+			</p:submenu>
+
+			<p:submenu label="Ajuda">
+				<p:menuitem value="Sobre" url="#" icon="ui-icon-contact" onclick="alert('Desafio JAVA\n\nBreno DAngelo Ferreira de Melo\n(31) 98749-1040\nbrenodangelo@gmail.com');" />
+				<p:menuitem value="Desafio (PDF)" url="./downloads/desafio.pdf" icon="ui-icon-document" />
+			</p:submenu>
+
+			<ui:insert name="menuItem" />
+
+		</p:menubar>
+
+		<ui:insert name="infoBar" />
+
+		<p:tooltip position="top" />
+
+	</h:form>
+
+</ui:component>

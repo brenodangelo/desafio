@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:insert name="metadata" />
+<h:head>
+	<title><h:outputText value="Desafio" /></title>
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+	<link type="text/css" rel="stylesheet" href="./templates/style.css" />
+	<link type="text/css" rel="stylesheet" href="./templates/primeflex.css" />
+	<p:growl id="growl" showDetail="true" sticky="false" life="3500" />
+	<div id="top">
+		<div class="ui-g">
+			<div class="ui-g-6">
+				<h:link outcome="inicio">
+					<h:graphicImage value="./images/logo.png" title="Página Inicial" style="width: 100%;max-width: 300px;"/>
+				</h:link>
+			</div>
+			<div class="ui-g-6" style="text-align: right; padding: 1.5em;">
+				<p:outputLabel value="Breno DAngelo Ferreira de Melo" style="text" />
+				<br />
+				<p:outputLabel value="Desafio JAVA - JSF - Hibernate - PostgreSQL - Github" style="text" />
+				<br />
+				<p:outputLabel value="Versão: 1.0" style="text" />
+			</div>
+		</div>
+	</div>
+
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="header.xhtml" />
+		</ui:insert>
+	</div>
+
+	<div id="content">
+        <p:messages id="messages" showDetail="true" closable="true">
+            <p:autoUpdate/>
+        </p:messages>
+		<ui:insert name="content" />
+	</div>
+
+	<div id="footer">
+		<ui:insert name="footer">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</div>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{login.logar()}" />
+	</f:metadata>
+</h:body>
+</html>
