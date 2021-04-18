@@ -2,7 +2,7 @@
 
 _Implementação de um desafio proposto para avaliação de um desenvolvedor_.
 
-Características: Estrutura JavaBeand e DAO; PrimeFaces 8; Hibernate.
+Características: Estrutura JavaBean e DAO; PrimeFaces 8; Hibernate.
 
 ## Pré-requisitos
 
@@ -16,7 +16,7 @@ _Instruções simplificadas para quem não tem experiência na manipulação de 
 
 - Repositorio para download do projeto `https://github.com/brenodangelo/desafio`.
 - Criação da Base de dados com o nome `desafio` e Schema também com o nome `desafio` e as devidas regras de acesso (não é preciso criar tabelas ou executar scripts).
-- Para configuração inicial e eventual personalização, recomendo uso da IDE Eclipse.
+- Para configuração inicial e eventual personalização, recomendo uso da IDE Eclipse para importar o projeto.
 - Configurar o arquivo `src\main\java\hibernate.properties` para definir os parametros de conexão com o banco de dados `url`, `username` e `password`.
 - Para execução local através do próprio Eclipse, poderá ser usada no menu do Eclipse `Run->Run` e configurar o servidor (recomendo o Tomcat 9), caso prefira exportar o arquivo WAR para um deploy em outro servidor, acessar no menu do Eclipse `File->Export->Web->WAR File`.
 - Após iniciar o servidor, acessar pelo navegador `http://IP:PORTA/Desafio/`, caso esteja executando localmente e na porta 8080, o endereço será: `http://localhost:8080/Desafio/`.
